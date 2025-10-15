@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ช่องทางการชำระเงิน</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+    body { 
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(180deg, #f1fff9, #dff7e6);
+      margin: 0; 
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #28a745, #20c997);
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 38px;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    .methods { 
+      display: flex; 
+      justify-content: center; 
+      margin: 50px 0; 
+    }
+
+    .card { 
+      width: 340px; 
+      background: #ffffff; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+      padding: 25px; 
+      text-align: center; 
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 6px solid #28a745;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      color: #28a745;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .card img { 
+      max-width: 100%; 
+      border-radius: 12px;
+      margin: 10px auto 20px; 
+      display: block;
+      border: 2px solid #dff7e6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 35px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 18px;
+      transition: background 0.3s, transform 0.2s;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background: #20c997;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ช่องทางการชำระเงิน</h1>
+    <p>สแกน QR Code เพื่อชำระเงิน<br>
+  </header>
+
+  <div class="methods">
+    <div class="card">
+      <h3>QR พร้อมเพย์ ร้าน</h3>
+      <img src="pic/qrcode.png" alt="QR Code ร้าน">
+      <a href="Thankyou.html" class="btn">ยืนยันการชำระเงิน</a>
+    </div>
+  </div>
+  <footer>กรุณาโชว์สลิปให้ดูก่อนด้วยนะครับ</footer>
+  <footer>© 2025 Sagae Ngam Food</footer>
+
+</body>
+</html>

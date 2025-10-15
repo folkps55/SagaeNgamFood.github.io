@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Queue ลูกค้า</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Kanit', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #f1fff9, #dff7e6);
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #28a745, #20c997);
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 600;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 15px 10px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #28a745;
+      color: white;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e8f5e9;
+      transition: 0.3s;
+    }
+
+    .status {
+      font-weight: 600;
+      color: #ff8c00;
+    }
+
+    .empty {
+      text-align: center;
+      color: #777;
+      font-size: 18px;
+      padding: 40px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666;
+    }
+    .order-button {
+      text-align: center;
+      margin: 50px 0;
+    }
+    #btnListMenu {
+      padding: 16px 45px;
+      font-size: 20px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #2e7d32, #ff8f8f);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    #btnListMenu:hover {
+      background: linear-gradient(90deg, #43a047, #ff6f6f);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1> Queue ลูกค้า</h1>
+    <p>รายการคิวของคุณ</p>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>เลขคิว</th>
+        <th>เมนู</th>
+        <th>ท็อปปิ้ง</th>
+        <th>สถานะ</th>
+        <th>ราคา (บาท)</th>
+      </tr>
+    </thead>
+    <tbody id="queueTable"></tbody>
+  </table>
+
+  <footer>© 2025 Sagae Ngam Food Queue System</footer>
+
+  <div class="order-button">
+    <button type="button" id="btnListMenu">กลับหน้าหลัก</button>
+  </div>
+
+  <script>
+    function renderTable() {
+      let orders = JSON.parse(localStorage.getItem("orders")) || [];
+      let tbody = document.getElementById("queueTable");
+
+      if (orders.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="empty">ยังไม่มีคำสั่งซื้อ</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = "";
+      orders.forEach((order, index) => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${order.menu}</td>
+            <td>${order.topping || "-"}</td>
+            <td class="status">${order.status || "กำลังทำ"}</td>
+            <td>${order.price ? order.price + " บาท" : "-"}</td>
+          </tr>`;
+      });
+    }
+    document.getElementById('btnListMenu').addEventListener('click', () => {
+  window.location.href = 'ListMenu.html';
+});
+
+    renderTable();
+  </script>
+</body>
+</html>
